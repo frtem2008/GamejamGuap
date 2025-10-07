@@ -9,7 +9,7 @@
   languages.python = {
     enable = true;
     # We require the python with C wrapper for compatibility with nixpkgs pygame
-    package = pkgs.python311;
+    package = pkgs.python313;
     venv.enable = true;
   };
 
