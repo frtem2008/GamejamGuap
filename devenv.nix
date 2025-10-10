@@ -16,7 +16,7 @@
   # https://devenv.sh/packages/
   packages = with pkgs; [
     # Required to install python dependencies easily
-    python311Packages.pip
+    python313Packages.pip
 
     # System dependencies for pygame
     alsa-lib

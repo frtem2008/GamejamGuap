@@ -12,14 +12,18 @@ class TileType(enum.Enum):
 
 
 class MapTile(pygame.sprite.Sprite):
+    white_tile =  pygame.image.load('./graphics/sprites/tiles/white.png')
+    black_tile = pygame.image.load('./graphics/sprites/tiles/black.png')
+    empty_tile = pygame.image.load('./graphics/sprites/tiles/empty.png')
+
     def __init__(self, XCoord, YCoord, *groups, t: TileType):
         super().__init__(*groups)
         if t == TileType.WHITE:
-            self.image = pygame.image.load('./graphics/sprites/tiles/white.png')
+            self.image = self.__class__.white_tile
         elif t == TileType.BLACK:
-            self.image = pygame.image.load('./graphics/sprites/tiles/black.png')
+            self.image = self.__class__.black_tile
         else:
-            self.image = pygame.image.load('./graphics/sprites/tiles/empty.png')
+            self.image = self.__class__.empty_tile
 
         self.rect = self.image.get_rect()
         self.rect.x = XCoord * self.rect.width
@@ -39,7 +43,7 @@ class MapTile(pygame.sprite.Sprite):
 
 class Map:
     def __init__(self):
-        self.map_image = pygame.image.load('./graphics/map.png')
+        self.map_image = pygame.image.load('./graphics/test_map.png')
         self.tile_group = pygame.sprite.Group()
         self.tiles = [[None for _ in range(self.map_image.get_width())] for _ in range(self.map_image.get_height())]
         color_map = {
