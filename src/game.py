@@ -14,6 +14,7 @@ class Game:
         self.players = pygame.sprite.Group()
         self.player = Player(self.players)
         self.map = Map()
+        self.backdround_image = pygame.image.load('graphics/background/clouds.png')
 
     def run(self):
         clock = pygame.time.Clock()
@@ -28,7 +29,8 @@ class Game:
 
             self.map.tile_group.update(self.screen)
             self.players.update()
-            self.screen.fill((168, 168, 96))
+            # self.screen.fill((168, 168, 96))
+            self.screen.blit(self.backdround_image, (0, 0))
             self.map.tile_group.draw(self.screen)
             self.players.draw(self.screen)
 
